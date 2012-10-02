@@ -1,0 +1,17 @@
+{% extends 'layouts/base.html' %}
+
+{% block page_title %}Posts | {{  block.super }}{% endblock %}
+
+{% block main %}
+	{% if object_list %}
+		<ul>
+			{% for post in object_list %}
+			<li><h2 id="test"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+			{{ post.body|truncatewords:50 }}
+			</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+	Sorry, no posts yet...
+	{% endif %}
+{% endblock %}

@@ -34,8 +34,7 @@ class Post(models.Model):
 
     @permalink
     def get_absolute_url(self):
-        return("post", (), {"blog": self.blog.slug,
-                            "slug": self.slug})
+        return("post", (), {"slug": self.slug})
 
     class Meta:
         ordering = ['-publish_at', '-modified', '-created']

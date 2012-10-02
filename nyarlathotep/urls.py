@@ -1,13 +1,17 @@
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic import ListView
+
+from entry.models import Post
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
+
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'nyarlathotep.views.home', name='home'),
+    url(r'^$', ListView.as_view(model=Post), name='home'),
     # url(r'^nyarlathotep/', include('nyarlathotep.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
