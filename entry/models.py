@@ -24,7 +24,7 @@ class Post(models.Model):
                              help_text="Titolo del post.")
     slug = models.SlugField()
     body = models.TextField()
-    author = models.ForeignKey(User, related_name="posts")
+    author = models.ForeignKey(User, related_name="posts", blank=True, null=True)
 
     objects = PostManager()
     tags = TaggableManager(blank=True)
