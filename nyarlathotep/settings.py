@@ -5,7 +5,7 @@ DIR = os.path.dirname(__file__)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-DEBUG_TOOLBAR_ENABLED = False
+DEBUG_TOOLBAR_ENABLED = True
 
 ADMINS = (
     ('Luca Dutto', 'duttoluca@gmail.com'),

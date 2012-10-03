@@ -7,11 +7,27 @@
 		<ul>
 			{% for post in object_list %}
 			<li><h2 id="test"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
-			{{ post.body|truncatewords:50 }}
+			{{ post.body|truncatewords:50|linebreaks  }}
 			</li>
 			{% endfor %}
 		</ul>
 	{% else %}
 	Sorry, no posts yet...
 	{% endif %}
+{% endblock %}
+
+{% block footer %}	
+	{% if is_paginated %}
+	<div class="pagination">
+		<span class="page-links">
+			{% if page_obj.has_previous %}
+		 	<a href="?page={{ page_obj.previous_page_number }}">prec.</a>
+		 	{% endif %}
+		 	<span class="page-current">Pagina {{ page_obj.number }} di {{ page_obj.paginator.num_pages }}.</span>
+	        {% if page_obj.has_next %}
+	        <a href="?page={{ page_obj.next_page_number }}">succ.</a>
+	        {% endif %}
+	       </span>
+		</div>
+     {% endif %}
 {% endblock %}

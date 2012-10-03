@@ -1,0 +1,13 @@
+{% extends 'layouts/base.html' %}
+
+{% block page_title %}{{ object.title }} | {{  block.super }}{% endblock %}
+
+{% block main %}
+<h2>{{ object.title }}</h2>
+<small>Pubblicato {{ object.publish_at|date }} da {{ object.author.username }}</small>
+<div id="content"> {{object.body|linebreaks }}</div>
+{% endblock main %}
+
+{% block footer %}
+<a href="{% url home %}">Indietro alla pagina principale</a>
+{% endblock footer %}
