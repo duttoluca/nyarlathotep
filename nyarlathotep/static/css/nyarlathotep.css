@@ -2,6 +2,9 @@ h1,h2,a {
 	color:orange;
 }
 
+h1 {
+	padding:5px;
+}
 
 a:hover{
 	text-decoration:none;
@@ -12,11 +15,20 @@ a:hover{
 	text-align:center;
 }
 
-div .odd, div .even{
-	border-bottom:1px dashed black;
-	padding:0px 5px;
+.dashed{
+	border-bottom:1px solid #EEE;
+	margin-bottom:5px;
 }
 
 div .odd{
-	background-color:#E8E8E8;
+	padding-left:5px;
+	background-color:#EEE;
+}
+
+
+div .even{
+	padding-left:5px;
+	margin:3px 0;
+	border-top:1px solid #EEE;
+	border-bottom:1px solid #EEE;
 }
