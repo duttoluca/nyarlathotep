@@ -24,23 +24,25 @@
         <div id="container-fluid">
 	        <div class="row-fluid">
 	        	<div class="span12">
-	        		{% block header %}<h1>Nyarlathotep</h1>{% endblock %}
-	        	</div>
+	        		{% block header %}
+	        		<div class="page-header">
+	        			<h1>Nyarlathotep
+	        				<small>small site</small>
+	        			</h1>
+	        		</div>
+	        		{% endblock %}
+        		</div>
 	        </div>
-			<div class="row-fluid">
-	        	<div class="span10 offset1">
-	        		{% block main %}{% endblock main %}
-	        	</div> 
-			</div>
+			{% block main %}{% endblock main %}
 	        <div class="row-fluid">
 	        	<div class="span12">
 	        	
 	        		{% block footer %}{% endblock footer %}
 	        	</div>
 	        </div>
-			<div id="pony" class="row-fluid">
-				<div class="span12">
-					<a href="http://djangopony.com/" class="ponybadge" title="Magic! Ponies! Django! Whee!"><img src="http://media.djangopony.com/img/small/badge.png" width="210" height="65" alt="pony powered"></a>
+			<div class="row-fluid">
+				<div class="span10 offset1">
+					<a class="pull-right" href="http://djangopony.com/" class="ponybadge" title="Magic! Ponies! Django! Whee!"><img src="http://media.djangopony.com/img/small/badge.png" width="210" height="65" alt="pony powered"></a>
 				</div>
 			</div>
 	
