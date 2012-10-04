@@ -26,14 +26,14 @@
 	        	<div class="span6">
 					<h1><a href="{% url home %}">Nyarlathotep</a> <small>small subtitle</small></h1>
 	        	</div>
-	        	<div class="span6">
-					<!-- <ul class="nav nav-pills" id="myTab">
-					  <li class="active">
-					    <a href="{% url home %}">Home</a>
-					  </li>
-					  <li><a href="#">pippo</a></li>
-					  <li><a href="#">pluto</a></li>
-					</ul> -->
+	        	<div class="span1 offset4">
+	        		<div id="links">
+		        		<ul class="unstyled">
+		        			<li><a href='/'><i class="icon-home"></i> Home</a></li>
+		        			<li><a href='/contacts/'><i class="icon-envelope"></i> Contacts</a></li>
+							<li><a href='/about/'><i class="icon-info-sign"></i> About</a></li>
+						</ul>
+					</div>
 	        	</div>
 	        </div>
 			{% block main %}{% endblock main %}
