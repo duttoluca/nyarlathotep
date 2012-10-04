@@ -100,6 +100,7 @@ MIDDLEWARE_CLASSES = (
     #'debug_toolbar.middleware.DebugToolbarMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
 )
 
 ROOT_URLCONF = 'nyarlathotep.urls'
@@ -130,6 +131,7 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'taggit_templatetags',
     'entry',
+    'django.contrib.flatpages',
 
 )
 
