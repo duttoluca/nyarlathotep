@@ -4,6 +4,8 @@ from django.views.generic import ListView, DetailView
 
 from entry.models import Post
 
+from entry.feeds import LatestPostsFeed
+
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -22,6 +24,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^feed/', LatestPostsFeed(), name='feeds'),
 )
 
 urlpatterns += staticfiles_urlpatterns()
