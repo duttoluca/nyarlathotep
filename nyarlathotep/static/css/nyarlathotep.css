@@ -30,14 +30,17 @@ a:hover{
 	margin-bottom:5px;
 }
 
-div .odd{
-	padding-left:5px;
+div .odd {
+	padding:5px;
 	background-color:#EEE;
 }
 
+div .odd p, div .even p {
+	text-align:justify;
+}
 
 div .even{
-	padding-left:5px;
+	padding:5px;
 	margin:3px 0;
 	border-top:1px solid #EEE;
 	border-bottom:1px solid #EEE;
