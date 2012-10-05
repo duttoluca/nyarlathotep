@@ -17,5 +17,8 @@ class LatestPostsFeed(Feed):
     def item_description(self, item):
         return item.body
 
-#    def link(self, item):
-#        return item.get_absolute_url()
+    def item_pubdate(self, item):
+        return item.publish_at
+
+    def item_author_name(self, item):
+        return item.author

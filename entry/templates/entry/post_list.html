@@ -30,22 +30,23 @@
 	{% if is_paginated %}
 	<div class="pagination centered">
 		<ul>
+			{% if not page_obj.has_previous %}
+		 	<li class="disabled"><a>prec.</a></li>
+		 	{% else %}
 		 	<li>
-		 		{% if page_obj.has_previous %}
-		 		<a href="?page={{ page_obj.previous_page_number }}">prec.</a>
-		 		{% else %}
-		 		<a class="muted">prec.</a>
-		 		{% endif %}	
+		 		<a href="?page={{ page_obj.previous_page_number }}">prec.</a>	 		
 		 	</li>
+		 	{% endif %}
 		 	<li>
 		 		<span class="page-current">Pagina {{ page_obj.number }} di {{ page_obj.paginator.num_pages }}</span>
 		 	</li>
-	        <li>{% if page_obj.has_next %}
-		 		<a href="?page={{ page_obj.next_page_number }}">succ.</a>
-		 		{% else %}
-		 		<a class="muted">succ.</a>
-		 		{% endif %}
+	        {% if not page_obj.has_next %}
+		 	<li class="disabled"><a>succ.</a></li>
+		 	{% else %}
+		 	<li>
+		 		<a href="?page={{ page_obj.next_page_number }}">succ.</a>	 		
 		 	</li>
+		 	{% endif %}
 		</ul>
 	</div>
      {% endif %}
