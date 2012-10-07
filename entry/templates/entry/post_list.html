@@ -12,7 +12,7 @@
 						<a href="{{ post.get_absolute_url }}">{{ post.title|title }}</a>
 						<small>{{ post.publish_at|date }} - {{ post.author.username }}</small>
 					</h2>
-					{{ post.body|linebreaks|truncatewords:50 }}
+					{{ post.body|safe|linebreaks|truncatewords:50 }}
 				
 			</div>
 		</div>

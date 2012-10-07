@@ -9,7 +9,7 @@
 			<small>{{ object.publish_at|date:"d F Y - G:i" }}</small>
 		</h2>
 		<div class="odd">
-		{{object.body|linebreaks }}
+		{{object.body|safe|linebreaks }}
 		</div>
 	<small>Pubblicato da {{ object.author.username }}</small>
 	</div>
