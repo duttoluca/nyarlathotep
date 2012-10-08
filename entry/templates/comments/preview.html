@@ -12,7 +12,7 @@
 	  <form action="{% comment_form_target %}" method="post">{% csrf_token %}
 	    {% if next %}<div><input type="hidden" name="next" value="{{ next }}" /></div>{% endif %}
 	    {% if form.errors %}
-	    <h2>{% blocktrans count counter=form.errors|length %}Please correct the error below{% plural %}Please correct the errors below{% endblocktrans %}</h2>
+	    <h2>{% blocktrans count counter=form.errors|length %}Correggi l'errore sotto indicato{% plural %}Correggi gli errori sotto indicati{% endblocktrans %}</h2>
 	    {% else %}
 	    <h2>{% trans "Preview your comment" %}</h2>
 	      <blockquote>{{ comment|linebreaks }}</blockquote>
@@ -33,8 +33,7 @@
 	      {% endif %}
 	    {% endfor %}
 	    <p class="submit">
-	    <input type="submit" name="submit" class="submit-post" value="{% trans "Post" %}" />
-	    <input type="submit" name="preview" class="submit-preview" value="{% trans "Preview" %}" />
+	    <input type="submit" name="submit" class="submit-post" value="Invia commento" />
 	    </p>
 	  </form>
 	</div>

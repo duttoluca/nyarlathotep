@@ -49,3 +49,8 @@ div .even{
 	border-top:1px solid #EEE;
 	border-bottom:1px solid #EEE;
 }
+
+.comment{
+	padding:5px 10px 5px 10px;
+	border-bottom:1px solid #EEE;
+}
