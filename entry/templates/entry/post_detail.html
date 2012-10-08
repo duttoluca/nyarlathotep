@@ -1,8 +1,11 @@
 {% extends 'layouts/base.html' %}
+{% load comments %}
 
 {% block page_title %}{{ object.title }} | {{  block.super }}{% endblock %}
 
 {% block main %}
+{% get_comment_count for object as comment_count %}
+
 <div class="row-fluid">
 	<div class="span10 offset1">
 		<h2>{{ object.title|title }}
@@ -11,10 +14,48 @@
 		<div class="odd">
 		{{object.body|safe|linebreaks }}
 		</div>
-	<small>Pubblicato da {{ object.author.username }}</small>
+	<small>Pubblicato da {{ object.author.username }} - Commenti: {{ comment_count }}</small>
+	
+	{% get_comment_list for object as cmt_list %}
+    {% for comment in cmt_list %}
+    <div class="comment">
+        <p><a href="{{ comment.user_url }}">{{ comment.user_name }}</a> - {{ comment.submit_date }}</p>
+        {{ comment.comment }}
+    </div>
+    {% endfor %}
+
+    <div class="comment_form">
+        {% render_comment_form for object %}
+    </div>
+	
+<!-- 	<div comments>
+	{% get_comment_form for object as form %}
+	<table>
+  		<form action="{% comment_form_target %}" method="post">{% csrf_token %}
+		  <input type="hidden" name="next" value="{{ next }}" />
+		  {% for field in form %}
+		    {% if field.is_hidden %}
+		      <div>{{ field }}</div>
+		    {% else %}
+		      {% if field.errors %}{{ field.errors }}{% endif %}
+		      <p
+		        {% if field.errors %} class="error"{% endif %}
+		        {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
+		        {{ field.label_tag }} {{ field }}
+		      </p>
+		    {% endif %}
+		  {% endfor %}
+		  <p class="submit">
+		    <input type="submit" name="post" class="submit-post" value="POST" />
+		  </p>
+		</form>
+	  </form>
+</table>
+	</div>  -->
+	
 	</div>
 </div>
-{% endblock main%}
+{% endblock main %}
 
 {% block footer %}
 <div class="offset1"><a href="{% url home %}">Indietro alla pagina principale</a></div>

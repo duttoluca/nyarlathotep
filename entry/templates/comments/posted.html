@@ -1,0 +1,14 @@
+{% extends "layouts/base.html" %}
+{% load i18n %}
+{% block page_title %}
+        Grazie per il commento. | {{  block.super }}
+{% endblock %}
+
+
+{% block main %}
+<div class="row-fluid">
+	<div class="span10 offset1">
+  <h2>{% trans "Thank you for your comment" %} <small>molto apprezzato!</small></h2>
+  </div>
+</div>
+{% endblock %}
