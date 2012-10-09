@@ -25,36 +25,27 @@
 	    </div>
 	    {% endfor %}
 	{% endif %}
-<!--     <div class="comment_form">
-    	<h3>Inserisci un commento...</h3>
-        {% render_comment_form for object %}
-    </div> -->
 	
-	<div comment_form>
-	{% get_comment_form for object as form %}
-	<h3>Inserisci un commento...</h3>
-	<table>
-  		<form action="{% comment_form_target %}" method="post">{% csrf_token %}
-		  <input type="hidden" name="next" value="{{object.get_absolute_url}}" />
-		  {% for field in form %}
-		    {% if field.is_hidden %}
-		      <div>{{ field }}</div>
-		    {% else %}
-		      {% if field.errors %}{{ field.errors }}{% endif %}
-		      <p
-		        {% if field.errors %} class="error"{% endif %}
-		        {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
-		        {{ field.label_tag }} {{ field }}
-		      </p>
-		    {% endif %}
-		  {% endfor %}
-		  <p class="submit">
-		    <input type="submit" name="post" class="submit-post" value="Invia commento" />
-		  </p>
+	{% get_comment_form for object as form %} 
+		<form class="form"  action="{% comment_form_target %}" method="post">
+			<legend>Inserisci un commento...</legend>
+		{% csrf_token %}
+			<input type="hidden" name="next" value="{{object.get_absolute_url}}" />
+			{% for field in form %}
+				{% if field.is_hidden %}
+			      <div>{{ field }}</div>
+			    {% else %}
+				<div class="control-group {% if field.errors %} error{% endif %}" {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
+					<label class="control-label" for="{{ field.name }}">{{ field.label_tag }}</label>
+					<div class="controls">
+					{{ field }}
+					 {% if field.errors %}<span class="help-inline">Please correct the error</span>{% endif %}
+					</div>
+				</div>
+				{% endif %}
+			{% endfor %}
+			<button type="submit" name="post" class="btn btn-primary">Submit</button>
 		</form>
-	  </form>
-</table>
-	</div> 
 
 	</div>
 </div>
