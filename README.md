@@ -16,4 +16,9 @@ django admin
 django taggit
 Twitter Bootstrap
 
+Per utilizzarlo:
+- creare un virtualenv con python 2.7.3
+- pip install -r requirement.txt
+- git clone git@github.com:duttoluca/nyarlathotep.git
+
 
