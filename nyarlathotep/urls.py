@@ -1,10 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.views.generic import ListView, DetailView
 
-
-
-from entry.models import Post
 from entry.views import PostListView, PostDetailView
 from entry.feeds import LatestPostsFeed
 

@@ -21,7 +21,7 @@
 		<form class="form"  action="{% comment_form_target %}" method="post">
 			<legend>Inserisci un commento...</legend>
 		{% csrf_token %}
-			<input type="hidden" name="next" value="{{object.get_absolute_url}}" />
+			<input type="hidden" name="next" value="{{ form.target_object.get_absolute_url }}" />
 			{% for field in form %}
 				{% if field.is_hidden %}
 			      <div>{{ field }}</div>
