@@ -12,11 +12,20 @@
 		<h2>{{ object.title|title }}
 			<small>{{ object.publish_at|date:"d F Y - G:i" }}</small>
 		</h2>
+		{% if object.categories.all %}
+			Categorie: 
+			{% for category in object.categories.all %}
+				{% if forloop.first %}
+				<small>{{ category.name }}</small>
+				{% else %}
+				<small> - {{ category.name }}</small>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
 		<div class="odd">
 		{{object.body|markdown:"safe" }}
 		</div>
 	<small>Pubblicato da {{ object.author.username }} - Commenti: {{ comment_count }}</small>
-	
 		{% get_comment_form for object as form %} 
 		<form class="form"  action="{% comment_form_target %}" method="post">
 			<legend>Inserisci un commento...</legend>

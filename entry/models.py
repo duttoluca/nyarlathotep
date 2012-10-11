@@ -7,6 +7,23 @@ from taggit.managers import TaggableManager
 from django.db.models import permalink
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=255,
+                             help_text="Nome della categoria.")
+    created = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField()
+    active = models.BooleanField(default=True,
+                                 help_text="Controlla se la categoria e' visibile.")
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        ordering = ['name']
+        verbose_name = 'Categoria'
+        verbose_name_plural = 'Categorie'
+
+
 class PostManager(models.Manager):
     def get_visible(self):
         return self.get_query_set().filter(publish_at__lte=datetime.datetime.now(),
@@ -28,6 +45,7 @@ class Post(models.Model):
 
     objects = PostManager()
     tags = TaggableManager(blank=True)
+    categories = models.ManyToManyField(Category, blank=True, null=True)
 
     def __unicode__(self):
         return self.title
@@ -38,3 +56,5 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-publish_at', '-modified', '-created']
+        
+        

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from entry.models import Post
+from entry.models import Post, Category
 
 
 class PostAdmin(admin.ModelAdmin):
@@ -14,7 +14,7 @@ class PostAdmin(admin.ModelAdmin):
                      "author"]
     fieldsets = (
                 (None, {
-                        'fields': ('title',)}
+                        'fields': ('title', 'categories',)}
                  ),
                  ('Publication', {"fields": ("active", "publish_at"),
                                   "description": "Controlla se e quando il post e' visibile."}
@@ -31,4 +31,13 @@ class PostAdmin(admin.ModelAdmin):
             obj.author = request.user
         obj.save()
 
+
+class CategoryAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
+    list_display = ('name', 'active',)
+    list_display_links = ('name',)
+    list_editable = ('active',)
+    search_fields = ['name']
+
 admin.site.register(Post, PostAdmin)
+admin.site.register(Category, CategoryAdmin)
