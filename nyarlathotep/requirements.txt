@@ -3,9 +3,6 @@ Django==1.4.1
 South==0.7.6
 django-annoying==0.7.6
 django-debug-toolbar==0.9.4
-django-taggit==0.9.3
-django-taggit-templatetags==0.4.6dev
-django-templatetag-sugar==0.1
 geopy==0.94.2
 ipython==0.13
 pyreadline==2.0-dev1
