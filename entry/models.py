@@ -51,7 +51,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255,
                              help_text="Titolo del post.",
                              verbose_name="Titolo")
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
     body = models.TextField()
     author = models.ForeignKey(User, related_name="posts", blank=True, null=True)
     objects = PostManager()
