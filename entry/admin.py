@@ -38,6 +38,13 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display_links = ('name',)
     list_editable = ('active',)
     search_fields = ['name']
+    fieldsets = (
+                (None, {
+                        'fields': ('name', 'active',)}
+                 ),
+                 ('Optional', {"fields": ("slug",),
+                               "classes": ("collapse",)})
+    )
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)

@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from entry.views import PostListView, PostDetailView
+from entry.views import PostListView, PostDetailView, PostListByCategoryView, CategoryListView
 from entry.feeds import LatestPostsFeed
 
 # Uncomment the next two lines to enable the admin:
@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^feed/', LatestPostsFeed(), name='feeds'),
     url(r'^comments/', include('django.contrib.comments.urls')),
+    url(r'^category/(?P<slug>[-\w]+)', PostListByCategoryView.as_view(), name="category"),
 )
 
 urlpatterns += staticfiles_urlpatterns()

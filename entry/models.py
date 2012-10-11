@@ -15,6 +15,11 @@ class Category(models.Model):
     active = models.BooleanField(default=True,
                                  help_text="Controlla se la categoria e' visibile.")
 
+
+    @permalink
+    def get_absolute_url(self):
+        return("category", (), {"slug": self.slug})
+
     def __unicode__(self):
         return self.name
 
