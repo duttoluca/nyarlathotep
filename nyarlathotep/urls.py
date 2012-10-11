@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^feed/', LatestPostsFeed(), name='feeds'),
     url(r'^comments/', include('django.contrib.comments.urls')),
+    url(r'^category/$', CategoryListView.as_view(), name="category_list"),
     url(r'^category/(?P<slug>[-\w]+)', PostListByCategoryView.as_view(), name="category"),
 )
 
