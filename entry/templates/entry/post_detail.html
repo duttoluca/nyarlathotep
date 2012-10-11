@@ -16,9 +16,9 @@
 			Categorie: 
 			{% for category in object.categories.all %}
 				{% if forloop.first %}
-				<small>{{ category.name }}</small>
+				<small><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></small>
 				{% else %}
-				<small> - {{ category.name }}</small>
+				<small> - <a href="{{ category.get_absolute_url }}">{{ category.name }}</a></small>
 				{% endif %}
 			{% endfor %}
 		{% endif %}
