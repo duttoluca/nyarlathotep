@@ -3,7 +3,6 @@ import datetime
 from django.db import models
 from django.contrib.auth.models import User
 
-from taggit.managers import TaggableManager
 from django.db.models import permalink
 
 
@@ -49,7 +48,6 @@ class Post(models.Model):
     author = models.ForeignKey(User, related_name="posts", blank=True, null=True)
 
     objects = PostManager()
-    tags = TaggableManager(blank=True)
     categories = models.ManyToManyField(Category, blank=True, null=True)
 
     def __unicode__(self):
@@ -61,5 +59,3 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-publish_at', '-modified', '-created']
-        
-        

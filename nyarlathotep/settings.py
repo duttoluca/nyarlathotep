@@ -127,9 +127,9 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'south',
-    'taggit',
+    #'taggit',
     'django.contrib.humanize',
-    'taggit_templatetags',
+    #'taggit_templatetags',
     'entry',
     'django.contrib.flatpages',
     'django.contrib.comments',

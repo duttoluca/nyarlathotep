@@ -19,7 +19,7 @@ class PostAdmin(admin.ModelAdmin):
                  ('Publication', {"fields": ("active", "publish_at"),
                                   "description": "Controlla se e quando il post e' visibile."}
                   ),
-                 ("Content", {"fields": ("body", "tags",)}
+                 ("Content", {"fields": ("body",)}
                   ),
                  ('Optional', {"fields": ("slug",),
                                "classes": ("collapse",)})
