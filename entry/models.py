@@ -8,11 +8,13 @@ from django.db.models import permalink
 
 class Category(models.Model):
     name = models.CharField(max_length=255,
-                             help_text="Nome della categoria.")
+                             help_text="Nome della categoria.",
+                             verbose_name="Nome")
     created = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField()
     active = models.BooleanField(default=True,
-                                 help_text="Controlla se la categoria e' visibile.")
+                                 help_text="Controlla se la categoria e' visibile.",
+                                 verbose_name="Categoria abilitata")
 
 
     @permalink
@@ -38,15 +40,20 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
     active = models.BooleanField(default=False,
-                                 help_text="Controlla se il post e' visibile.")
+                                 help_text="Controlla se il post e' visibile.",
+                                 verbose_name="Visualizza post")
+    enable_comments = models.BooleanField(default=True,
+                                          help_text="Controlla se sono permessi commenti.",
+                                          verbose_name="Abilita commenti")
     publish_at = models.DateTimeField(default=datetime.datetime.now(),
-                                      help_text="Quando il post sara' visibile.")
+                                      help_text="Quando il post sara' visibile.",
+                                      verbose_name="Data pubblicazione")
     title = models.CharField(max_length=255,
-                             help_text="Titolo del post.")
+                             help_text="Titolo del post.",
+                             verbose_name="Titolo")
     slug = models.SlugField()
     body = models.TextField()
     author = models.ForeignKey(User, related_name="posts", blank=True, null=True)
-
     objects = PostManager()
     categories = models.ManyToManyField(Category, blank=True, null=True)
 

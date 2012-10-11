@@ -5,10 +5,10 @@ from entry.models import Post, Category
 
 class PostAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
-    list_display = ('active', 'title', 'created', 'modified', 'publish_at', 'author',)
+    list_display = ('active', 'enable_comments', 'title', 'created', 'modified', 'publish_at', 'author',)
     list_display_links = ('title', 'author',)
-    list_editable = ('active',)
-    list_filter = ('modified', 'created', 'active', "publish_at")
+    list_editable = ('active', 'enable_comments',)
+    list_filter = ('modified', 'created', 'active', 'enable_comments', "publish_at")
     date_hierarchy = "publish_at"
     search_fields = ["title", "body",
                      "author"]
@@ -16,7 +16,7 @@ class PostAdmin(admin.ModelAdmin):
                 (None, {
                         'fields': ('title', 'categories',)}
                  ),
-                 ('Publication', {"fields": ("active", "publish_at"),
+                 ('Publication', {"fields": ("active", 'enable_comments', "publish_at"),
                                   "description": "Controlla se e quando il post e' visibile."}
                   ),
                  ("Content", {"fields": ("body",)}
