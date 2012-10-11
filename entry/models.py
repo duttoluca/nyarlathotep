@@ -11,7 +11,7 @@ class Category(models.Model):
                              help_text="Nome della categoria.",
                              verbose_name="Nome")
     created = models.DateTimeField(auto_now_add=True)
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
     active = models.BooleanField(default=True,
                                  help_text="Controlla se la categoria e' visibile.",
                                  verbose_name="Categoria abilitata")
