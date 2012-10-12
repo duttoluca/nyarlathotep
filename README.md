@@ -13,7 +13,6 @@ django comments
 django markup
 django flatpages
 django admin
-django taggit
 Twitter Bootstrap
 
 Per utilizzarlo:
