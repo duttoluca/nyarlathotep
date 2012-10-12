@@ -41,6 +41,8 @@ a:hover{
 div .odd {
 	padding:5px;
 	background-color:#EEE; 
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }
 
 div .odd p, div .even p {
