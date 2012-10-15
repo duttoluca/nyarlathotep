@@ -11,7 +11,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', PostListView.as_view(), name='home'),
-    url(r'^post/(?P<slug>[-\w]+)$', PostDetailView.as_view(), name='post'),
+    url(r'^post/(?P<slug>[-\w]+)/$', PostDetailView.as_view(), name='post'),
     # url(r'^nyarlathotep/', include('nyarlathotep.foo.urls')),
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
@@ -21,7 +21,7 @@ urlpatterns = patterns('',
     url(r'^feed/', LatestPostsFeed(), name='feeds'),
     url(r'^comments/', include('django.contrib.comments.urls')),
     url(r'^category/$', CategoryListView.as_view(), name="category_list"),
-    url(r'^category/(?P<slug>[-\w]+)', PostListByCategoryView.as_view(), name="category"),
+    url(r'^category/(?P<slug>[-\w]+)/$', PostListByCategoryView.as_view(), name="category"),
 )
 
 urlpatterns += staticfiles_urlpatterns()

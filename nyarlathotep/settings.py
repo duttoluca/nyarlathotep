@@ -1,11 +1,14 @@
 # Django settings for nyarlathotep project.
 import os
 
+
 DIR = os.path.dirname(__file__)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 DEBUG_TOOLBAR_ENABLED = False
+
+APPEND_SLASH = True
 
 ADMINS = (
     ('Luca Dutto', 'duttoluca@gmail.com'),
