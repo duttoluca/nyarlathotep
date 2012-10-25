@@ -6,7 +6,7 @@ DIR = os.path.dirname(__file__)
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
-DEBUG_TOOLBAR_ENABLED = False
+DEBUG_TOOLBAR_ENABLED = True
 
 APPEND_SLASH = True
 
@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     #'taggit_templatetags',
     'entry',
+    'accounts',
     'django.contrib.flatpages',
     'django.contrib.comments',
     'django.contrib.markup',
@@ -168,6 +169,8 @@ LOGGING = {
         },
     }
 }
+
+AUTH_PROFILE_MODULE = 'accounts.UserProfile'
 
 if DEBUG and DEBUG_TOOLBAR_ENABLED:
     MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)
