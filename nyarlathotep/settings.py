@@ -9,6 +9,12 @@ TEMPLATE_DEBUG = DEBUG
 DEBUG_TOOLBAR_ENABLED = False
 
 APPEND_SLASH = True
+FILE_CHARSET = 'ISO-8859-1'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'
+
+EMAIL_HOST = 'smtpinternal.gec.it'
+EMAIL_SUBJECT_PREFIX = '[NYTest] '
 
 ADMINS = (
     ('Luca Dutto', 'duttoluca@gmail.com'),
@@ -138,6 +144,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'django.contrib.comments',
     'django.contrib.markup',
+    'registration',
 
 )
 
@@ -171,6 +178,9 @@ LOGGING = {
 }
 
 AUTH_PROFILE_MODULE = 'accounts.UserProfile'
+
+# django registration
+ACCOUNT_ACTIVATION_DAYS = 7
 
 if DEBUG and DEBUG_TOOLBAR_ENABLED:
     MIDDLEWARE_CLASSES += ('debug_toolbar.middleware.DebugToolbarMiddleware',)

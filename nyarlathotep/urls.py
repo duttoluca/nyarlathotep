@@ -22,6 +22,7 @@ urlpatterns = patterns('',
     url(r'^comments/', include('django.contrib.comments.urls')),
     url(r'^category/$', CategoryListView.as_view(), name="category_list"),
     url(r'^category/(?P<slug>[-\w]+)/$', PostListByCategoryView.as_view(), name="category"),
+    url(r'^accounts/', include('registration.backends.default.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()

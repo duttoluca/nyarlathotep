@@ -1,0 +1,9 @@
+E' stata richiesta l'attivazione di un account su {{ site.name }}. 
+Se non hai effettuato tu questa richiesta ignora la presente email.
+
+Per attivare l'account, clicca sul seguente link entro {{ expiration_days }} giorni:
+
+http://{{site.domain}}/accounts/activate/{{ activation_key }}
+
+Grazie,
+{{ site.name }} Management

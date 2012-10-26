@@ -1,0 +1,11 @@
+{% extends "registration/registration_base.html" %}
+{% block title %}Log out{% endblock %}
+{% block body %}
+
+<span> Logout completato con successo! </span>
+
+<br/><br/>
+
+Per accedere nuovamente, clicca<a href={% url auth_login %}> qui </a>.
+
+{% endblock %}
