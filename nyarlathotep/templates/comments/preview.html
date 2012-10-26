@@ -8,8 +8,6 @@
 
 {% block main %}
 {% load comments %}
-<div class="row-fluid">
-	<div class="span10 offset1">
 		<form class="form"  action="{% comment_form_target %}" method="post">
 		<legend><h2>Correggi gli errori nel commento...</h2></legend>
 		{% csrf_token %}
@@ -29,6 +27,4 @@
 			{% endfor %}
 			<button type="submit" name="post" class="btn btn-primary">Submit</button>
 		</form>
-	</div>
-</div>
 {% endblock main %}

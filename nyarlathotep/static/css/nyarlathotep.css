@@ -43,6 +43,8 @@ div .odd {
 	background-color:#EEE; 
 	-moz-border-radius: 10px;
 	border-radius: 10px;
+	margin:0;
+	border:0;
 }
 
 div .odd p, div .even p {

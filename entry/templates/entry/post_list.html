@@ -9,24 +9,16 @@
 	{% if object_list %}
 		{% for post in object_list %}
 		{% get_comment_count for post as comment_count %}
-		<div class="row-fluid">
-			<div class="span10 offset1 {% cycle 'odd' 'even' as rowcolors %}">
-				
+			<div class="{% cycle 'odd' 'even' as rowcolors %}">
 					<h2>
 						<a href="{{ post.get_absolute_url }}">{{ post.title|title }}</a>
 						<small>{{ post.publish_at|date }} - {{ post.author.username }} {% if comment_count %}- Commenti: {{ comment_count }}{% endif %} </small>
 					</h2>
 					{{ post.body|markdown:"safe"|truncatewords_html:50 }}
-				
 			</div>
-		</div>
 		{% endfor %}
 	{% else %}
-	<div class="row-fluid">
-		<div class="span10 offset1">
 	Sorry, no posts yet...
-		</div>
-	</div>
 	{% endif %}
 {% endblock %}
 
